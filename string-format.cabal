@@ -1,0 +1,39 @@
+cabal-version:      3.4
+name:               string-format
+version:            0.1.0.0
+synopsis:           a simple string formatting function
+description:        works in the similar way to python's ("{}".format(x))
+
+license:            MIT
+license-file:       LICENSE
+author:             Le Niu
+maintainer:         le.niu@hotmail.com
+-- copyright:
+category:           Text
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md
+-- extra-source-files:
+
+common warnings
+    ghc-options: -Wall
+
+library
+    import:           warnings
+    exposed-modules:  Data.String.Format
+    -- other-modules:
+    other-extensions: OverloadedStrings
+    build-depends:    base ^>=4.12.0.0
+    hs-source-dirs:   src
+    default-language: Haskell2010
+
+test-suite string-format-test
+    import:           warnings
+    default-language: Haskell2010
+    other-modules:    Data.String.Format
+    other-extensions: OverloadedStrings
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test, src
+    main-is:          Main.hs
+    build-depends:
+        base ^>=4.12.0.0,
+        string-format
